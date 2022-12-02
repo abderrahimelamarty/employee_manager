@@ -2,6 +2,7 @@ package com.abdo.employeeapi.controllers;
 
 import com.abdo.employeeapi.models.Employee;
 import com.abdo.employeeapi.services.EmployeeService;
+import jakarta.persistence.Column;
 import jakarta.websocket.server.PathParam;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -9,7 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin("http://localhost:4200/")
 @RestController
 @RequestMapping("/api/v1")
 public class EmployeeController {
@@ -45,7 +46,7 @@ public class EmployeeController {
     public ResponseEntity<Employee> updateEmployee(@RequestBody  Employee emp){
      Employee updateEmployee = empervice.updateEmployee(emp);
      return new ResponseEntity<>(updateEmployee, HttpStatus.OK);
-     
+
  }
 
 }
